@@ -1,0 +1,11 @@
+{
+  "name": "dsh-global-macro-assistant",
+  "version": "0.1.0",
+  "description": "全球宏观与A股外部环境研究插件；官方市场数据、趋势和教学，不交易。",
+  "author": { "name": "Trade OS" },
+  "interface": {
+    "displayName": "全球宏观分析助手",
+    "shortDescription": "美元利率、汇率、波动率与全球周期",
+    "category": "Productivity"
+  }
+}
