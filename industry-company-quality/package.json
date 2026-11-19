@@ -1,0 +1,13 @@
+{
+  "name": "dsh-industry-company-quality",
+  "version": "0.1.0",
+  "description": "行业产业链、周期轮动、公司质地与议价能力研究助手",
+  "type": "module",
+  "main": "lib/index.js",
+  "engines": { "node": ">=24" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/dsh-mcp-client": ">=0.2.2-rc.1 <0.3.0-0" },
+  "license": "UNLICENSED",
+  "private": true
+}
+
