@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {Store} from '../lib/storage.js';
+import {callTool} from '../lib/tools.js';
+import {trend,INDICATORS} from '../lib/research.js';
+function setup(){const directory=mkdtempSync(join(tmpdir(),'dsh-global-'));return {directory,store:new Store(directory)}}
+function row(day,value){return {indicator:'us10y',value,unit:'%',observed_period:day,observedPeriod:day,released_at:day,releasedAt:day,source:'treasury',sourceUrl:'https://home.treasury.gov/test',frequency:'daily',quality:'official'}}
+test('trend uses indicator observation count and computes curve windows',()=>{const rows=[];for(let i=1;i<=8;i++)rows.push(row(`2026-01-${String(i).padStart(2,'0')}`,i));const t=trend(rows);assert.equal(t.changes['1'].value,1);assert.equal(t.changes['5'].value,5);assert.equal(t.direction_5,'UP');assert.equal(t.direction_20,'INSUFFICIENT')});
+test('direction_1 uses the latest pair',()=>{assert.equal(trend([row('2026-01-01',2),row('2026-01-02',3)]).direction_1,'UP')});
+test('duplicate observation is stored once',()=>{const {directory,store}=setup();try{assert.equal(store.insert(row('2026-01-01',4)),true);assert.equal(store.insert(row('2026-01-01',4)),false);assert.equal(store.count(),1)}finally{store.close();rmSync(directory,{recursive:true,force:true})}});
+test('empty global daily brief reports evidence gap, not a direction',async()=>{const {directory,store}=setup();try{const r=await callTool(store,'global_daily_brief',{asOf:'2026-01-01'});assert.match(r.verdict,/证据不足/);assert.equal(r.indicators.length,INDICATORS.length);assert.equal(r.indicators.every(x=>x.status==='UNAVAILABLE'),true)}finally{store.close();rmSync(directory,{recursive:true,force:true})}});
+test('policy events require verified https URL and deduplicate',async()=>{const {directory,store}=setup();try{const a={region:'US',centralBank:'Federal Reserve',eventDate:'2026-01-01',title:'FOMC',decision:'hold',sourceUrl:'https://www.federalreserve.gov/'};assert.equal((await callTool(store,'global_policy_save',a)).status,'SAVED');assert.equal((await callTool(store,'global_policy_save',a)).status,'DUPLICATE');const b=await callTool(store,'global_policy_timeline',{startDate:'2026-01-01',endDate:'2026-01-01'});assert.equal(b.events.length,1)}finally{store.close();rmSync(directory,{recursive:true,force:true})}});
+test('snapshot compare requires at least two snapshots',async()=>{const {directory,store}=setup();try{await callTool(store,'global_snapshot_save',{asOf:'2026-01-01'});assert.equal((await callTool(store,'global_snapshot_compare',{count:2})).status,'INSUFFICIENT_HISTORY')}finally{store.close();rmSync(directory,{recursive:true,force:true})}});
