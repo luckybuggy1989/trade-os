@@ -1,0 +1,13 @@
+{
+  "name": "dsh-cn-macro-assistant",
+  "version": "0.1.0",
+  "description": "中国宏观与A股资金面分析助手：固定数据工具、趋势快照、教学型解读",
+  "type": "module",
+  "main": "lib/index.js",
+  "engines": { "node": ">=24" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/dsh-mcp-client": ">=0.2.2-rc.1 <0.3.0-0" },
+  "scripts": { "test": "node --test tests/*.test.js" },
+  "license": "UNLICENSED",
+  "private": true
+}
