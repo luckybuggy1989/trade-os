@@ -1,0 +1,12 @@
+{
+  "name": "dsh-a-share-market-data",
+  "version": "0.1.0",
+  "description": "个股/板块K线、区间成交统计、换手率、筹码结果和热度排名。",
+  "author": { "name": "Trade OS" },
+  "interface": {
+    "displayName": "A股行情与板块热度",
+    "shortDescription": "K线、成交、换手、筹码与连续性排名",
+    "category": "Productivity"
+  }
+}
+
