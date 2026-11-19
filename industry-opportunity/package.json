@@ -1,0 +1,13 @@
+{
+  "name": "dsh-industry-opportunity-assistant",
+  "version": "0.1.0",
+  "description": "行业机会研究：政策、产业新闻、海外板块与A股市场验证",
+  "type": "module",
+  "main": "lib/index.js",
+  "engines": { "node": ">=24" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/dsh-mcp-client": ">=0.2.2-rc.1 <0.3.0-0" },
+  "license": "UNLICENSED",
+  "private": true
+}
+
