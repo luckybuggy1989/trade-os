@@ -1,0 +1,11 @@
+{
+  "name": "dsh-cn-macro-assistant",
+  "version": "0.1.0",
+  "description": "国内宏观与A股资金面研究插件；手机端直连公开源、SQLite趋势跟踪、教学解读，不自动交易。",
+  "author": { "name": "Trade OS" },
+  "interface": {
+    "displayName": "国内宏观分析助手",
+    "shortDescription": "宏观数据、政策与趋势跟踪",
+    "category": "Productivity"
+  }
+}
