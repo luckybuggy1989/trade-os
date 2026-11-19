@@ -1,0 +1,12 @@
+{
+  "name": "dsh-industry-company-quality",
+  "version": "0.1.0",
+  "description": "拆解行业产业链、供需周期、机会轮动点与公司质地/话语权证据。",
+  "author": { "name": "Trade OS" },
+  "interface": {
+    "displayName": "行业与公司质地研究",
+    "shortDescription": "产业链、周期、竞争力与议价能力",
+    "category": "Productivity"
+  }
+}
+
