@@ -1,0 +1,13 @@
+{
+  "name": "dsh-a-share-market-data",
+  "version": "0.1.0",
+  "description": "A股个股与板块行情、区间统计、换手率、筹码分布接入和热度排名",
+  "type": "module",
+  "main": "lib/index.js",
+  "engines": { "node": ">=24" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/dsh-mcp-client": ">=0.2.2-rc.1 <0.3.0-0" },
+  "license": "UNLICENSED",
+  "private": true
+}
+
