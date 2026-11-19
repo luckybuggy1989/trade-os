@@ -1,0 +1,12 @@
+{
+  "name": "dsh-industry-opportunity-assistant",
+  "version": "0.1.0",
+  "description": "基于可核验证据追踪政策、产业新闻、海外板块与A股行业反应。",
+  "author": { "name": "Trade OS" },
+  "interface": {
+    "displayName": "行业板块机会助手",
+    "shortDescription": "政策、产业链、海外行情与A股确认",
+    "category": "Productivity"
+  }
+}
+
