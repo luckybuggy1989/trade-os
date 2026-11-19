@@ -40,6 +40,8 @@
 - `global_collect_official(startDate,endDate)`：采集固定官方来源。
 - `global_import_observations(rows)`：导入官方低频序列，要求单位、观测期、发布日期、频率和来源URL。
 - `global_daily_brief(asOf?)`：输出最新市场状态和A股外部传导观察。
+- `global_daily_brief(mode="summary")`：概要模式，默认用于多个插件间传递全球环境；返回紧凑结构化通道、主要变化/分歧和缺口。
+- `global_daily_brief(mode="detailed")`：详细模式，逐项包含口径、值、时间、1/5/20期趋势、条件传导、竞争解释与验证方法。
 - `global_trend(indicators,observations?)`：1/5/20个有效观测变化、方向一致性和分化。
 - `global_explain(indicator,asOf?)`：入门解释、传导、竞争解释和验证方法。
 - `global_policy_save` / `global_policy_timeline`：保存并查看经官方来源核验的央行事件。
