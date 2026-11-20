@@ -1,0 +1,13 @@
+{
+  "name": "dsh-short-term-position-manager",
+  "version": "0.1.0",
+  "description": "短线持仓导入、组合风险预算、减仓/退出与试探仓和条件增仓计划",
+  "type": "module",
+  "main": "lib/index.js",
+  "engines": { "node": ">=24" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/dsh-mcp-client": ">=0.2.2-rc.1 <0.3.0-0" },
+  "license": "UNLICENSED",
+  "private": true
+}
+
