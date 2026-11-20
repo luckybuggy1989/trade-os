@@ -1,0 +1,12 @@
+{
+  "name": "dsh-short-term-position-manager",
+  "version": "0.1.0",
+  "description": "短线仓位计划：持仓核对、总风险预算、个股调整、试探仓和确认后增仓。",
+  "author": { "name": "Trade OS" },
+  "interface": {
+    "displayName": "短线仓位管理",
+    "shortDescription": "持仓草稿、风险预算与条件加减仓计划",
+    "category": "Productivity"
+  }
+}
+
