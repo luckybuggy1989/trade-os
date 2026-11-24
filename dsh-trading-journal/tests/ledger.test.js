@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import { replayFills,validateFill } from '../lib/ledger.js';
+const buy=(id,day,qty,price,fees=0)=>({id,execution_id:id,symbol:'600000.SH',name:'浦发银行',side:'BUY',trade_date:day,executed_at:`${day}T10:00:00+08:00`,quantity:qty,price,fees});
+const sell=(id,day,qty,price,fees=0)=>({id,execution_id:id,symbol:'600000.SH',side:'SELL',trade_date:day,executed_at:`${day}T10:00:00+08:00`,quantity:qty,price,fees});
+test('FIFO replay observes A-share T+1 and allocates fees',()=>{const r=replayFills([buy(1,'2026-01-01',200,10,2),buy(2,'2026-01-02',100,12,1),sell(3,'2026-01-03',200,13,1)],{asOf:'2026-01-03'});assert.equal(r.positions[0].quantity,100);assert.equal(r.positions[0].availableQuantity,100);assert.equal(r.realized.length,1);assert.equal(r.realized[0].buyCost,2002);assert.equal(r.realized[0].realizedPnl,597);});
+test('same-day buy lot is not sellable',()=>{assert.throws(()=>replayFills([buy(1,'2026-01-01',100,10),sell(2,'2026-01-01',100,11)]),/SELL_EXCEEDS_T1_SELLABLE/);});
+test('buy lots must use board lots but odd-lot liquidation is allowed',()=>{assert.throws(()=>validateFill({executionId:'x',symbol:'600000.SH',side:'BUY',tradeDate:'2026-01-01',executedAt:'2026-01-01T10:00:00+08:00',quantity:50,price:10,userConfirmed:true}),/100_SHARE_LOTS/);assert.equal(validateFill({executionId:'y',symbol:'600000.SH',side:'SELL',tradeDate:'2026-01-01',executedAt:'2026-01-01T10:00:00+08:00',quantity:50,price:10,userConfirmed:true}),true);});
