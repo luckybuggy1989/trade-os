@@ -1,0 +1,11 @@
+{
+  "name": "dsh-portfolio-strategy",
+  "version": "0.1.0",
+  "description": "固定R风险计算、市场/板块/个股预算约束和右侧回踩策略闸门。",
+  "author": { "name": "Trade OS" },
+  "interface": {
+    "displayName": "组合策略引擎",
+    "shortDescription": "三级预算、固定R和S2策略校验",
+    "category": "Productivity"
+  }
+}
