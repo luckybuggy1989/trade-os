@@ -1,0 +1,11 @@
+{
+  "name": "dsh-trading-journal",
+  "version": "0.1.0",
+  "description": "不可覆盖的交易计划、确认成交、FIFO持仓快照和过程复盘记录。",
+  "author": { "name": "Trade OS" },
+  "interface": {
+    "displayName": "交易日志与复盘",
+    "shortDescription": "保存计划、成交和复盘快照",
+    "category": "Productivity"
+  }
+}
