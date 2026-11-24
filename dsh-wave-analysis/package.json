@@ -1,0 +1,13 @@
+{
+  "name": "dsh-wave-analysis",
+  "version": "0.1.0",
+  "description": "Deterministic multi-timeframe pivot, Elliott-rule validation and price/time projection tools for DSHA",
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=24" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/dsh-mcp-client": ">=0.2.2-rc.1 <0.3.0-0" },
+  "license": "UNLICENSED",
+  "private": true
+}
