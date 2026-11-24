@@ -1,0 +1,13 @@
+{
+  "name": "dsh-portfolio-strategy",
+  "version": "0.1.0",
+  "description": "User-confirmed market-sector-name exposure budgets, fixed-R sizing and S2 strategy gates for DSHA",
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=24" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/dsh-mcp-client": ">=0.2.2-rc.1 <0.3.0-0" },
+  "license": "UNLICENSED",
+  "private": true
+}
