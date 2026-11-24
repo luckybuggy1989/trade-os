@@ -1,0 +1,13 @@
+{
+  "name": "dsh-trading-journal",
+  "version": "0.1.0",
+  "description": "Append-only trading plans, user-confirmed fills, FIFO position snapshots and process reviews for DSHA",
+  "type": "module",
+  "main": "lib/index.js",
+  "engines": { "node": ">=24" },
+  "scripts": { "test": "node --test" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/dsh-mcp-client": ">=0.2.2-rc.1 <0.3.0-0" },
+  "license": "UNLICENSED",
+  "private": true
+}
