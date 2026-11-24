@@ -1,0 +1,11 @@
+{
+  "name": "dsh-wave-analysis",
+  "version": "0.1.0",
+  "description": "多周期拐点、波浪规则校验、斐波那契价格/时间窗口和不可覆盖的浪型快照。",
+  "author": { "name": "Trade OS" },
+  "interface": {
+    "displayName": "波浪分析",
+    "shortDescription": "拐点候选、多方案校验和时空测算",
+    "category": "Productivity"
+  }
+}
